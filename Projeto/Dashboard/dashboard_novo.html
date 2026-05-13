@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaTech | Dashboards</title>
+
+    <link rel="stylesheet" href="./../css/dashboards.css">
+    <script src="../js/sessao.js"></script>
+    <script src="./../js/alerta.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="dashboards.css">
+
+    <!-- FONT AWESOME -->
+    <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="validarSessao(), inicializarDashboard(), atualizacaoPeriodica()">
+
+    <div class="janela">
+        <div class="header-left">
+            <h1>Lírion</h1>
+
+            <div class="hello">
+                <h3>Olá, Bem-vindo(a)</span>!</h3>
+            </div>
+
+
+            <div class="btn-nav-grafico">
+                <h3>Gráficos</h3>
+            </div>
+
+            <div class="btn-nav">
+                <a href="./mural.html">
+                    <h3>Mural de Avisos</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav">
+                <a href="./cards.html">
+                    <h3>Publicar</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav">
+                <a href="./cards.html">
+                    <h3>Suporte 🎧</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+        </div>
+
+        <!-- Conteúdo principal -->
+        <div class="conteudo-principal">
+
+            <div id="alerta"></div>
+
+            <!-- Título -->
+            <div class="topo">
+                <h2 class="topo-titulo">
+                    Suas criações — <em>fotografia poética</em>
+                </h2>
+                <p class="topo-subtitulo">DASHBOARD · MÉTRICAS PESSOAIS</p>
+            </div>
+
+            <!-- Dashboard -->
+            <div class="dashboard">
+
+                <!-- Cards de métricas -->
+                <div class="grade-metricas">
+                    <div class="card-metrica">
+                        <p class="card-metrica-label">Obras publicadas</p>
+                        <p class="card-metrica-numero" id="totalObras">—</p>
+                        <p class="card-metrica-sub positivo">fotografias poéticas</p>
+                    </div>
+
+                    <div class="card-metrica">
+                        <p class="card-metrica-label">Contemplações</p>
+                        <p class="card-metrica-numero" id="totalLikes">—</p>
+                        <p class="card-metrica-sub positivo">likes recebidos</p>
+                    </div>
+
+                    <div class="card-metrica">
+                        <p class="card-metrica-label">Ressonâncias</p>
+                        <p class="card-metrica-numero" id="totalRessonancias">—</p>
+                        <p class="card-metrica-sub">curtidas + comentários</p>
+                    </div>
+
+                    <div class="card-metrica">
+                        <p class="card-metrica-label">Vozes recebidas</p>
+                        <p class="card-metrica-numero" id="totalComentarios">—</p>
+                        <p class="card-metrica-sub">comentários</p>
+                    </div>
+                </div>
+
+                <!-- Gráfico: Clima Poético das Obras  -->
+                <div class="card-grande">
+                    <p class="card-grande-titulo">CLIMA POÉTICO DAS OBRAS</p>
+
+                    <div id="climaCarregando" style="text-align:center; color:#888; padding: 40px 0;">
+                         Carregando dados...
+                    </div>
+
+                    <div id="climaVazio" class="display-none" style="text-align:center; color:#888; padding: 40px 0;">
+                        <i class="fa-solid fa-wind"></i>
+                        <p style="margin-top: 10px;">Nenhuma obra publicada ainda.</p>
+                        <p style="font-size: 12px;">Publique sua primeira obra para ver o clima poético!</p>
+                    </div>
+
+                    <div id="climaGraficoContainer" class="display-none">
+                        <canvas id="climaChart" style="max-height: 320px;"></canvas>
+                    </div>
+                </div>
+
+                <!-- Inspiração do dia -->
+                <div class="card-grande-inspiracao">
+                    <p class="card-grande-titulo">INSPIRAÇÃO DO DIA</p>
+
+                    <div class="inspiracao-frase">
+                        <p>"A fotografia é a arte de congelar o tempo que a poesia corre para alcançar."</p>
+                        <span>— sugestão gerada para você</span>
+                    </div>
+
+                    <button class="botao-inspirar" onclick="window.location.href='../Index.html'">
+                        Inspirar próxima obra ↗
+                    </button>
+                </div>
+
+            </div>
+            <!-- fim .dashboard -->
+
+        </div>
+        <!-- fim conteúdo principal -->
+
+    </div>
+    <!-- fim .janela -->
+
+</body>
+</html>
